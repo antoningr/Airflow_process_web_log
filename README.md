@@ -6,24 +6,24 @@ This project aims to create a simple Apache Airflow workflow named "process_web_
 
 
 ## Workflow Tasks
-1. **Define the DAG**
+**1. Define the DAG**
 - Create a DAG named "process_web_log" that runs daily.
 
 
-2. **Scan for Log**
+**2. Scan for Log**
 - Create a task named "scan_for_log" that scans a folder named "the_logs" for a file named "log.txt." This task triggers the rest of the workflow.
 
 
-3. **Extract Data**
+**3. Extract Data**
 - Create a task named "extract_data" to extract the 'ipaddress' field from the web server log file and save it into a file named "extracted_data.txt."
 
-4. **Transform Data**
+**4. Transform Data**
 - Create a task named "transform_data" to filter out occurrences of 'ipaddress' 198.46.149.143 from "extracted_data.txt" and save the output to a file named "transformed_data.txt."
 
-5. **Load Data**
+**5. Load Data**
 - Create a task named "load_data" to archive the file "transformed_data.txt" into a tar file named "weblog.tar."
 
-6. **Notify Workflow Execution**
+**6. Notify Workflow Execution**
 - Add an additional task after the last task to send a message indicating that the workflow was executed. The message can be sent to a Discord channel.
 
 
@@ -39,6 +39,10 @@ Test Workflow:
 Monitor Workflow:
 - Trigger and run the workflow multiple times to monitor its behavior.
 - Document any findings or observations during the monitoring process.
+
+
+## Discord for notifying workflow execution
+The additional task for notifying workflow execution can be implemented using Airflow's operators or external tools such as Discord webhooks. 
 
 
 ## Files
@@ -64,10 +68,6 @@ Monitor Workflow:
 2. Task Execution
 - The tasks are executed using Apache Airflow's scheduler and executor.
 - Ensure that Airflow is properly configured, and the required dependencies are installed.
-
-
-## Discord for notifying workflow execution
-The additional task for notifying workflow execution can be implemented using Airflow's operators or external tools such as Discord webhooks.
 
 
 ## Conclusion
